@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Requests\ProfileUpdateRequest;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\View\View;
+
+class ProfileController extends Controller
+{
+    public function index()
+    {
+        // Mendapatkan informasi user yang sedang login
+        $user = Auth::user();
+
+        // Mengirim informasi user ke view
+        return view('admin.profile.index', compact('user'));
+    }
+}
