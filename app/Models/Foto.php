@@ -16,7 +16,17 @@ class Foto extends Model
     public function user(){
         return $this->belongsTo(User::class, 'userId');
     }
-    public function album(){
-        return $this->belongsTo(Album::class);
+    public function album()
+    {
+        return $this->belongsTo(Album::class, 'albumId');
+    }
+
+    public function komentar()
+    {
+    return $this->hasMany(KomentarFoto::class, 'fotoId');
+    }
+    public function like()
+    {
+    return $this->hasMany(Like::class, 'fotoId');
     }
 }

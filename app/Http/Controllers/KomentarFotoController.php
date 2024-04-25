@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\KomentarFoto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class KomentarFotoController extends Controller
 {

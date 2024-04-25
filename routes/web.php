@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\KomentarFotoController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\AlbumController;
@@ -35,6 +36,8 @@ Route::get('/dashboard', [DashboardController::class, 'dashboard']);
 Route::resource('/admin/data-foto', FotoController::class)->middleware('auth');
 Route::resource('/admin/album', AlbumController::class)->middleware('auth');
 Route::get('/detail/{fotoId}', [FotoController::class, 'show']);
+Route::get('/detail/{photoId}/like', [LikeController::class, 'like']);
+Route::post('/detail/{id}', [KomentarFotoController::class, 'storeComment']);
 
 
 require __DIR__.'/auth.php';
